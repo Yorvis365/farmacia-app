@@ -25,19 +25,22 @@ export default function Header({ user, onToggleSidebar, dark, onToggleDark, onLo
       </div>
 
       {/* ===== Derecha ===== */}
-      <div className="flex items-center gap-4 text-gray-500 dark:text-gray-400">
+      <div className="flex items-center gap-1 sm:gap-4 text-gray-500 dark:text-gray-400">
 
         {/* Toggle tema */}
         <button
           onClick={onToggleDark}
-          className="hover:text-pharma-600 dark:hover:text-pharma-400 transition-colors"
+          className="h-10 w-10 inline-flex items-center justify-center rounded-lg hover:text-pharma-600 dark:hover:text-pharma-400 transition-colors"
           aria-label="Alternar tema"
         >
           {dark ? <FaSun /> : <FaMoon />}
         </button>
 
         {/* Notificaciones */}
-        <button className="relative hover:text-pharma-600 dark:hover:text-pharma-400 transition-colors">
+        <button
+          className="relative h-10 w-10 inline-flex items-center justify-center rounded-lg hover:text-pharma-600 dark:hover:text-pharma-400 transition-colors"
+          aria-label="Notificaciones"
+        >
           <FaBell />
           <span className="absolute -top-1 -right-1 flex h-3 w-3">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-400 opacity-75" />
@@ -67,15 +70,16 @@ export default function Header({ user, onToggleSidebar, dark, onToggleDark, onLo
         {/* Botón Salir con acento rojo suave */}
         <button
           onClick={onLogout}
-          className="hidden sm:inline-flex items-center gap-2 text-xs font-semibold
+          className="inline-flex h-10 w-10 sm:w-auto items-center justify-center sm:justify-start gap-2 text-xs font-semibold
                      text-gray-500 dark:text-gray-400
                      hover:text-accent-600 dark:hover:text-accent-400
                      hover:bg-accent-50 dark:hover:bg-accent-500/10
                      px-3 py-2 rounded-lg transition-colors"
           aria-label="Cerrar sesión"
+          title="Cerrar sesión"
         >
           <FaRightFromBracket className="text-xs" />
-          <span>Salir</span>
+          <span className="hidden sm:inline">Salir</span>
         </button>
       </div>
     </header>
